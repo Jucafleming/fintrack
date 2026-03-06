@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AuthModule } from './auth/auth.module';
 import { User } from './users/user.entity';
 import { Group } from './groups/group.entity';
 import { GroupMember } from './groups/group-member.entity';
@@ -28,6 +29,8 @@ import { GroupMember } from './groups/group-member.entity';
         logging: config.get<string>('NODE_ENV') === 'development',
       }),
     }),
+
+    AuthModule,
   ],
 })
 export class AppModule {}
