@@ -5,6 +5,7 @@
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "strictPropertyInitialization": false,
     "outDir": "./dist",
     "rootDir": "./src",
     "baseUrl": "./"
