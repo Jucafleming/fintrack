@@ -6,6 +6,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
+    "types": ["jest", "node"],
     "outDir": "./dist",
     "rootDir": "./src",
     "baseUrl": "./"
