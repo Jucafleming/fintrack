@@ -7,6 +7,10 @@ import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
 import { User } from './users/user.entity';
 import { Group } from './groups/group.entity';
 import { GroupMember } from './groups/group-member.entity';
+import { Category } from './categories/category.entity';
+import { PaymentMethod } from './payment-methods/payment-method.entity';
+import { Transaction } from './transactions/transaction.entity';
+import { Installment } from './transactions/installment.entity';
 
 @Module({
   imports: [
@@ -25,7 +29,7 @@ import { GroupMember } from './groups/group-member.entity';
         database: config.get<string>('DB_NAME'),
         username: config.get<string>('DB_USER'),
         password: config.get<string>('DB_PASSWORD'),
-        entities: [User, Group, GroupMember],
+        entities: [User, Group, GroupMember, Category, PaymentMethod, Transaction, Installment],
         migrations: [__dirname + '/migrations/*{.ts,.js}'],
         synchronize: false,
         logging: config.get<string>('NODE_ENV') === 'development',
