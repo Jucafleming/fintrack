@@ -1,0 +1,18 @@
+export const DEFAULT_CATEGORIES = [
+  { name: 'Assinaturas', color: '#6366f1' },
+  { name: 'Beleza', color: '#ec4899' },
+  { name: 'Contas', color: '#f59e0b' },
+  { name: 'Despesas eventuais', color: '#84cc16' },
+  { name: 'Eletrônicos', color: '#06b6d4' },
+  { name: 'Esportes', color: '#10b981' },
+  { name: 'Gatos', color: '#f97316' },
+  { name: 'Ifood/Restaurante', color: '#ef4444' },
+  { name: 'Lazer', color: '#8b5cf6' },
+  { name: 'Mercado', color: '#22c55e' },
+  { name: 'Necessidades', color: '#64748b' },
+  { name: 'Presentes', color: '#e879f9' },
+  { name: 'Roupa', color: '#f43f5e' },
+  { name: 'Saúde', color: '#14b8a6' },
+  { name: 'Streaming', color: '#a855f7' },
+  { name: 'Uber/Transporte', color: '#0ea5e9' },
+];
