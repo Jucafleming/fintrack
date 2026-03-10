@@ -16,6 +16,8 @@ import { GroupMember } from '../groups/group-member.entity';
 import { GroupRole } from '@fintrack/shared';
 import { RegisterDto } from './dto/register.dto';
 import { LoginDto } from './dto/login.dto';
+import { SeedService } from '../seed/seed.service';
+
 
 
 @Injectable()
@@ -26,6 +28,7 @@ constructor(
   private jwtService: JwtService,
   private config: ConfigService,
   private dataSource: DataSource,
+  private seedService: SeedService,
 ) {}
 
   async register(dto: RegisterDto) {
@@ -52,6 +55,8 @@ constructor(
         role: GroupRole.ADMIN,
       });
       await manager.save(member);
+
+      await this.seedService.seedGroup(group.id, manager);
 
       const tokens = await this.generateTokens(user);
       await manager.update(User, user.id, {

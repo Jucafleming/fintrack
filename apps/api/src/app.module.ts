@@ -12,6 +12,7 @@ import { PaymentMethod } from './payment-methods/payment-method.entity';
 import { Transaction } from './transactions/transaction.entity';
 import { Installment } from './transactions/installment.entity';
 import { SeedModule } from './seed/seed.module';
+import { GroupsModule } from './groups/groups.module';
 
 @Module({
   imports: [
@@ -21,7 +22,7 @@ import { SeedModule } from './seed/seed.module';
     }),
 
     TypeOrmModule.forRootAsync({
-      imports: [ConfigModule, SeedModule],
+      imports: [ConfigModule, SeedModule, GroupsModule,],
       inject: [ConfigService],
       useFactory: (config: ConfigService) => ({
         type: 'postgres',

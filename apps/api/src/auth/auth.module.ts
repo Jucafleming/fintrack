@@ -10,14 +10,18 @@ import { User } from '../users/user.entity';
 import { Group } from '../groups/group.entity';
 import { GroupMember } from '../groups/group-member.entity';
 
+import { SeedModule } from '../seed/seed.module';
+
 @Module({
   imports: [
     PassportModule,
     JwtModule.register({}),
-   TypeOrmModule.forFeature([User, Group, GroupMember]),
+    TypeOrmModule.forFeature([User, Group, GroupMember]),
+    SeedModule,
   ],
   controllers: [AuthController],
   providers: [AuthService, JwtStrategy, JwtRefreshStrategy],
   exports: [AuthService],
 })
 export class AuthModule {}
+
