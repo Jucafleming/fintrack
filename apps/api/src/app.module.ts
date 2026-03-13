@@ -15,6 +15,7 @@ import { SeedModule } from './seed/seed.module';
 import { GroupsModule } from './groups/groups.module';
 import { CategoriesModule } from './categories/categories.module';
 import { PaymentMethodsModule } from './payment-methods/payment-methods.module';
+import { TransactionsModule } from './transactions/transactions.module';
 
 @Module({
   imports: [
@@ -43,6 +44,7 @@ import { PaymentMethodsModule } from './payment-methods/payment-methods.module';
     AuthModule,
     CategoriesModule,
     PaymentMethodsModule,
+    TransactionsModule,
   ],
   providers: [
     {
