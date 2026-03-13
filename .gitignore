@@ -36,3 +36,7 @@ yarn-error.log*
 # Misc
 .DS_Store
 *.pem
+run-setup.bat
+setup-files.js
+prompts/FinTrack Architecture.pdf
+prompts/progress.md
