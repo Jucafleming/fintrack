@@ -13,6 +13,8 @@ import { Transaction } from './transactions/transaction.entity';
 import { Installment } from './transactions/installment.entity';
 import { SeedModule } from './seed/seed.module';
 import { GroupsModule } from './groups/groups.module';
+import { CategoriesModule } from './categories/categories.module';
+import { PaymentMethodsModule } from './payment-methods/payment-methods.module';
 
 @Module({
   imports: [
@@ -39,6 +41,8 @@ import { GroupsModule } from './groups/groups.module';
     }),
 
     AuthModule,
+    CategoriesModule,
+    PaymentMethodsModule,
   ],
   providers: [
     {
