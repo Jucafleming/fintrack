@@ -11,11 +11,15 @@ import { Category } from './categories/category.entity';
 import { PaymentMethod } from './payment-methods/payment-method.entity';
 import { Transaction } from './transactions/transaction.entity';
 import { Installment } from './transactions/installment.entity';
+import { Budget } from './budgets/budget.entity';
 import { SeedModule } from './seed/seed.module';
 import { GroupsModule } from './groups/groups.module';
 import { CategoriesModule } from './categories/categories.module';
 import { PaymentMethodsModule } from './payment-methods/payment-methods.module';
 import { TransactionsModule } from './transactions/transactions.module';
+import { BudgetsModule } from './budgets/budgets.module';
+import { DashboardModule } from './dashboard/dashboard.module';
+import { ExportsModule } from './exports/exports.module';
 
 @Module({
   imports: [
@@ -34,7 +38,7 @@ import { TransactionsModule } from './transactions/transactions.module';
         database: config.get<string>('DB_NAME'),
         username: config.get<string>('DB_USER'),
         password: config.get<string>('DB_PASSWORD'),
-        entities: [User, Group, GroupMember, Category, PaymentMethod, Transaction, Installment],
+        entities: [User, Group, GroupMember, Category, PaymentMethod, Transaction, Installment, Budget],
         migrations: [__dirname + '/migrations/*{.ts,.js}'],
         synchronize: false,
         logging: config.get<string>('NODE_ENV') === 'development',
@@ -45,6 +49,9 @@ import { TransactionsModule } from './transactions/transactions.module';
     CategoriesModule,
     PaymentMethodsModule,
     TransactionsModule,
+    BudgetsModule,
+    DashboardModule,
+    ExportsModule,
   ],
   providers: [
     {

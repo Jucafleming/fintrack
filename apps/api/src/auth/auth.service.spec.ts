@@ -6,6 +6,7 @@ import { ConfigService } from '@nestjs/config';
 import { DataSource } from 'typeorm';
 import { AuthService } from './auth.service';
 import { User } from '../users/user.entity';
+import { SeedService } from '../seed/seed.service';
 import * as bcrypt from 'bcrypt';
 
 jest.mock('bcrypt', () => ({
@@ -60,6 +61,7 @@ describe('AuthService', () => {
         { provide: DataSource, useValue: mockDataSource },
         { provide: JwtService, useValue: mockJwtService },
         { provide: ConfigService, useValue: mockConfigService },
+        { provide: SeedService, useValue: { seedGroup: jest.fn() } },
       ],
     }).compile();
 
