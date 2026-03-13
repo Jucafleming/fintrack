@@ -20,8 +20,6 @@ export class TransactionsService {
   constructor(
     @InjectRepository(Transaction)
     private transactionsRepo: Repository<Transaction>,
-    @InjectRepository(Installment)
-    private installmentsRepo: Repository<Installment>,
     @InjectRepository(Category)
     private categoriesRepo: Repository<Category>,
     @InjectRepository(PaymentMethod)
@@ -110,10 +108,11 @@ export class TransactionsService {
       await manager.save(transaction);
 
       if (dto.type === TransactionType.INSTALLMENT) {
-        const installmentAmount = Number((dto.amount / dto.installmentCount).toFixed(2));
+        const count = dto.installmentCount!;
+        const installmentAmount = Number((dto.amount / count).toFixed(2));
         const installments: Installment[] = [];
 
-        for (let i = 1; i <= dto.installmentCount; i++) {
+        for (let i = 1; i <= count; i++) {
           const dueDate = new Date(dto.date);
           dueDate.setMonth(dueDate.getMonth() + (i - 1));
 
